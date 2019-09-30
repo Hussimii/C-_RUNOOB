@@ -1,1 +1,131 @@
 // Datatype
+#include<iostream>
+#include<string>
+#include<limits>
+
+using namespace std;
+
+int main(){
+    cout<<"type:\t\t"<<"************size**************"<<endl;
+    cout<<"bool:\t\t"<<"所占字节数: "<<sizeof(bool);
+    cout<<"\tmax: "<<(numeric_limits<bool>::max)();
+    cout<<"\t\tmin: "<<(numeric_limits<bool>::min)()<<endl;
+
+    cout<<"char:\t\t"<<"所占字节数: "<<sizeof(char);
+    cout<<"\tmax: "<<(numeric_limits<char>::max)();
+    cout<<"\t\tmin: "<<(numeric_limits<char>::min)()<<endl;
+
+    cout<<"signed char:\t\t"<<"所占字节数: "<<sizeof(signed char);
+    cout<<"\tmax: "<<(numeric_limits<signed char>::max)();
+    cout<<"\t\tmin: "<<(numeric_limits<signed char>::min)()<<endl;
+
+    cout<<"unsigned char:\t\t"<<"所占字节数: "<<sizeof(unsigned char);
+    cout<<"\tmax: "<<(numeric_limits<unsigned char>::max)();
+    cout<<"\t\tmin: "<<(numeric_limits<unsigned char>::min)()<<endl;
+
+    cout<<"wchar_t:\t\t"<<"所占字节数: "<<sizeof(wchar_t);
+    cout<<"\tmax: "<<(numeric_limits<wchar_t>::max)();
+    cout<<"\t\tmin: "<<(numeric_limits<wchar_t>::min)()<<endl;
+
+    cout<<"short:\t\t"<<"所占字节数: "<<sizeof(short);
+    cout<<"\tmax: "<<(numeric_limits<short>::max)();
+    cout<<"\t\tmin: "<<(numeric_limits<short>::min)()<<endl;
+
+    cout<<"int:\t\t"<<"所占字节数: "<<sizeof(int);
+    cout<<"\tmax: "<<(numeric_limits<int>::max)();
+    cout<<"\t\tmin: "<<(numeric_limits<int>::min)()<<endl;
+
+    cout<<"unsigned:\t\t"<<"所占字节数: "<<sizeof(unsigned);
+    cout<<"\tmax: "<<(numeric_limits<unsigned>::max)();
+    cout<<"\t\tmin: "<<(numeric_limits<unsigned>::min)()<<endl;
+
+    cout<<"unsigned long:\t\t"<<"所占字节数: "<<sizeof(unsigned long);
+    cout<<"\tmax: "<<(numeric_limits<unsigned long>::max)();
+    cout<<"\t\tmin: "<<(numeric_limits<unsigned long>::min)()<<endl;
+
+    cout<<"long:\t\t"<<"所占字节数: "<<sizeof(long);
+    cout<<"\tmax: "<<(numeric_limits<long>::max)();
+    cout<<"\t\tmin: "<<(numeric_limits<long>::min)()<<endl;
+
+    cout<<"double:\t\t"<<"所占字节数: "<<sizeof(double);
+    cout<<"\tmax: "<<(numeric_limits<double>::max)();
+    cout<<"\t\tmin: "<<(numeric_limits<double>::min)()<<endl;
+
+    cout<<"long double:\t\t"<<"所占字节数: "<<sizeof(long double);
+    cout<<"\tmax: "<<(numeric_limits<long double>::max)();
+    cout<<"\t\tmin: "<<(numeric_limits<long double>::min)()<<endl;
+
+    cout<<"float:\t\t"<<"所占字节数: "<<sizeof(float);
+    cout<<"\tmax: "<<(numeric_limits<float>::max)();
+    cout<<"\t\tmin: "<<(numeric_limits<float>::min)()<<endl;
+
+    cout<<"size_t:\t\t"<<"所占字节数: "<<sizeof(size_t);
+    cout<<"\tmax: "<<(numeric_limits<size_t>::max)();
+    cout<<"\t\tmin: "<<(numeric_limits<size_t>::min)()<<endl;
+
+    cout<<"string:\t"<<"所占字节数: "<<sizeof(string)<<endl;
+
+    cout<<"type:\t\t"<<"************size**************"<<endl;
+
+}
+
+//枚举测试
+#include<iostream>
+using namespace std;
+
+enum time{first, second, third, forth, fifth}; //枚举类型不一定定义在main函数里
+
+int main(){
+    /*
+    enum days{one,two,three}day;     
+    day = two;
+    
+                                                                                            /*enum days{one = 1,two = 3,three = 5}day;     
+                                                                                            day = 3;*/ 这样就会报错？ 变量类型转换错误？                            
+     
+    switch(day){                         // 枚举+switch，从day赋值的变量开始往后枚举。
+        case one:
+            cout<<"one"<<endl;
+        case two:
+            cout<<"two"<<endl;
+        default:
+            cout<<"three"<<endl;
+        break;
+    }*/
+
+    enum time a = first;
+    if(a==fifth){
+        cout<<"Succeed!";
+    }
+    else{
+        cout<<"Test!";
+    }
+    return 0;
+}
+
+// 枚举+switch测试
+#include<iostream>
+using namespace std;
+
+int main(){
+    enum rank{
+        first=0, second=5, third=7
+    };
+
+    int nRank = 7;   // 第一个名称的值为0,第二个为1,以此类推。第一个值只能为0,后续值可修改.
+    switch(nRank){
+        case first:
+            cout << "First!";
+            break;
+        case second:
+            cout << "Second!";
+            break;
+        case third:
+            cout << "Third!";
+            break;
+        default:
+            break;
+    }
+    // pause();
+    return 0;
+}
