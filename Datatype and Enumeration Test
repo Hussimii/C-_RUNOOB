@@ -69,7 +69,7 @@ int main(){
 
 }
 
-//枚举测试
+//枚举-1+2。枚举测试 
 #include<iostream>
 using namespace std;
 
@@ -77,7 +77,7 @@ enum time{first, second, third, forth, fifth}; //枚举类型不一定定义在m
 
 int main(){
     /*
-    enum days{one,two,three}day;     
+    enum days{one = 1,two = 3,three = 5}day;     
     day = two;
     
                                                                                             /*enum days{one = 1,two = 3,three = 5}day;     
@@ -87,7 +87,11 @@ int main(){
         case one:
             cout<<"one"<<endl;
         case two:
-            cout<<"two"<<endl;
+            
+            printf("%d\n",day);
+            cout<<day<<endl;           // 此时输出的是3，不是two。证明：枚举的 one = 1, 其中one是名称，1是值。 
+            
+            cout<<"two"<<endl;      
         default:
             cout<<"three"<<endl;
         break;
@@ -103,7 +107,7 @@ int main(){
     return 0;
 }
 
-// 枚举+switch测试
+// 枚举-3。枚举+switch测试
 #include<iostream>
 using namespace std;
 
@@ -113,6 +117,7 @@ int main(){
     };
 
     int nRank = 7;   // 第一个名称的值为0,第二个为1,以此类推。第一个值只能为0,后续值可修改.
+                                    // int nRank = 7; 等价于 enum rank nRank = third;    enum给名称，int给值。 
     switch(nRank){
         case first:
             cout << "First!";
@@ -121,6 +126,7 @@ int main(){
             cout << "Second!";
             break;
         case third:
+            cout << nRank << endl;    // 此时输出的是nRank的值，为7。
             cout << "Third!";
             break;
         default:
