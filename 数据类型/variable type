@@ -1,0 +1,42 @@
+// 变量转换
+int main()
+{
+    int a = 1;
+    double b = 2.5;
+    a = b;              //double -> int
+    cout << a;          //output 2, lost the fraction.
+}
+
+int a = 1;
+double b = 2.5;
+cout << "a + b = " << a+b << endl;   // cout 3.5
+
+cout << "a + b = " << a + (int)b << endl;  // cout 3. 转换后向下取整。
+
+//左值右值
+#include "stdafx.h"
+
+int  *a = NULL;
+int main()
+{
+
+    if (a = NULL)//赋值语句，并非判断语句
+    {
+        return false;
+    }
+    if (NULL = a)//!!!!ERROR  此处在程序编译阶段不通过，“=”右边不能为变量名
+
+    {
+        return false;
+    }
+    if (a == NULL)//可行 ，判断指针a是否为空
+    {
+        return false;
+    }
+    if (NULL == a)//可行 ，判断指针a是否为空。在实际项目中，为了防止将“==”误写作“=”推荐讲变量名写在右侧，编译器可以帮助寻找错误
+    {
+        return false;
+    }
+
+    return 0;
+}
