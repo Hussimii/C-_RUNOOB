@@ -1,0 +1,42 @@
+//typedef 和 #define 作用域测试
+
+#include<iostream>
+
+using namespace std;
+
+//#define: 没有作用域限制
+void func1(){
+    #define HW "Hello World!";
+}
+
+void func2(){
+    string str = HW;
+    cout << str << endl;
+}
+
+//typedef：有作用域限制 - 函数
+void func3(){
+    typedef unsigned int UINT;
+}
+
+void func4(){
+    UINT uValue = 5;    //error C2065: 'UINT' : undeclared identifier
+}
+//typedef: 作用域限制 - 类
+class A{
+    typedef unsigned int UINT;
+    //public typedef unsigned int UINT;
+    UINT valueA;
+    A():valueA(0){}
+};
+
+class B{
+    UINT valueB;
+    //error C2146: syntax error : missing ';' before identifier 'valueB'
+    //error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+}
+
+int main(){
+    func2();
+    return 0;
+}
