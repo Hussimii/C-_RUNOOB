@@ -1,0 +1,24 @@
+// head.h
+extern int a;    // 仅声明，没有初始化赋值，在其他文件中的main函数外可以声明并初始化定义。
+extern int b = 1;   // 声明加初始化定义。 其他文件中只可以声明调用，不可进行赋值操作。
+
+extern void func();
+
+
+// .cpp file
+
+#include<iostream>
+#include"head.h"
+using namespace std;
+
+extern int a = 10;  // 可以声明并赋值，会出现warning.
+extern int b;           //不可以赋值，也会出现warning.
+
+int main()
+{
+  cout << a<< b;
+  void func();
+  
+  return 0;
+  
+}
