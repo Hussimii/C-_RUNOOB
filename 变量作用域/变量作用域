@@ -1,0 +1,63 @@
+/******** 全局变量作用域从程序开始至程序结束 ********/
+
+#include<iostream>
+using namespace std;
+
+int a = 10;   //定义全局变量。
+
+int main()
+{
+    // extern int a;               // 全局变量在函数下面时，需要先声明，否则会报错。
+    cout << "Global variable: " << a << endl;
+    return 0;
+}
+
+// int a = 10;
+
+/******** 函数体内可以存在同名的变量，但前提是作用域不同 ********/
+#include<iostream>
+using namespace std;
+
+// global var
+int g = 20;
+
+int main()
+{
+    int a = 5, b = 30;
+    {
+        // locar var
+        int g = 10;                                                                 // 同名，但作用域不同。
+        cout << "local variable is: " << g << '\n';
+    }
+   cout << "global variable is: " << g << '\n';
+
+   g = a + b;               // 全局变量的值可以改变。
+   cout << "global variable is: " << g << '\n';
+
+   return 0;
+}
+
+/*************** 静态变量 *************/
+
+#include<iostream>
+using namespace std;
+
+int count = 1;     // global var
+
+int func()
+{
+    // 第一次进入该函数，静态局部变量初始化为10,然后自减1,之后每次进入该函数，count的值为上一次函数运行后的值。
+    static int count = 10; //static local var
+    // 此时静态局部变量不再初始化，仅进行自减1的操作。
+    return count--;
+    // static出现之前，达到同样的功能只能使用全局变量。
+}
+
+int main()
+{
+    cout << "global with local static:" << endl;
+    for(; count<=10; count++)              // global
+        cout << "   " << func() << endl;   // local var
+
+    return 0;
+}
