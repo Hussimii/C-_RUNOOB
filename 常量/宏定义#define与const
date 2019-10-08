@@ -1,0 +1,15 @@
+#include<iostream>
+#include"stdio.h"
+using namespace std;
+const int maxn = 1e+10;           // 只有一次定义
+#define maxn2 1e+10                // #define方法不需要; 也不需要赋值号
+
+int main()
+{
+    cout << maxn << "\n";
+    cout << maxn2 << "\n";
+
+    printf("%lld\n", maxn);
+    printf("%lld\n", maxn2);
+    return 0;
+}
