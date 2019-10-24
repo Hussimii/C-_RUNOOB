@@ -1,1 +1,45 @@
+//有符号与无符号整数区别
+/* 无符号转为有符号：M = N - 2^n 
+     M为有符号，N为无符号，n取决于N类型的位数（int/short/long/etc...）*/
+// 二进制输出理解
 
+#include<iostream>
+#include<bitset>
+using namespace std;
+
+int main()
+{
+    short int i;  // 有符号短整数
+    unsigned short int j; //无符号短整数
+
+    j = 50000;
+    i = j;
+    cout << "short int i: "<< i << "\n" << "unsigned short int j: "<< j << "\n";
+
+    // cout << "i-oct: " << std::oct << i << "\n";   // Octal
+    // cout << "i-dec: " << std::dec << i << "\n";   // Decimal
+    // cout << "i-hex: " << std::hex << i << "\n";   // Hexadecimal
+    cout << bitset<30>(i) << "\n" << bitset<30>(j) << endl;   // Binary 数字表示输出多少位
+
+
+    return 0;
+}
+
+
+
+// volatile 用于修饰多线程
+volatile boolean isNext = False;
+
+Thread A(){
+    // 1st job
+    isNext = true;
+}
+
+Thread B() {
+    if (isNext) {
+        // 2ed job
+    }
+}
+
+/* 2ed job每次从内存中读取isNext的值，让第二个工作在第一个之后进行
+    但不能保证顺序性，因为编译器编译时会重新打乱语句的先后顺序，因此不一定1st job和赋值的isNext会按照代码顺序正常执行。 */
