@@ -1,0 +1,44 @@
+#include<iostream>
+using namespace std;
+
+class Data
+{
+public:
+    Data(){}
+    ~Data(){}
+    void show()  // 类的对象
+    {
+        cout << this->data << " " << number << endl;
+    }
+
+    static void showData()   // 静态成员先于类的对象存在
+    {
+        // 该方法调用时不包含指针
+        cout << "" << number << endl;
+    }
+
+private:
+    int data;
+
+public:
+    static int number; // 静态数据在声明之后，类外初始化
+};
+
+int Data::number = 0;  // 静态成员初始化
+
+/*  main  */
+int main()
+{
+    Data::showData();   // 静态成员通过类名直接调用
+
+    Data::number = 100;  // 通过类名直接使用
+
+    Data d;
+    d.show();
+    d.showData();   //通过对象调用
+
+    cout << "Hello World!" << endl;
+
+    return 0;
+
+}
