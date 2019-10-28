@@ -1,0 +1,53 @@
+1. sizeof()   // 返回变量的大小. e.g. int -> 4
+
+2. condition ? X : Y        // condition为真，输出X，否则，输出Y
+
+3. ,  逗号运算符   //执行一系列运算，以逗号分隔列表中的最后一个表达式的值为输出。
+#include<iostream>
+using namespace std;
+
+int main() {
+    int i,j;
+
+    j = 10;
+    i = (j++, j+=100, j+999); // i = 10 + 1 + 100 + 999 > 1100
+    i = (j++, j+100, j+999);  // i = 10 + 1 + 999 -> 1010
+
+    cout << i;
+
+    return 0;
+}
+
+4. 成员运算符 .(点) 和 ->(箭头)
+struct employee {
+        char first_name[16];
+        int age;
+} emp;
+点运算符: strcpy(emp.first_name, "zara");  //直接调用
+箭头运算符: strcpy(p_emp->first_name, "zara");   // 指针访问结构成员
+
+5. 指针运算符  取地址运算符 &  简介寻址运算符 *
+#include<iostream>
+
+using namespace std;
+
+int main()
+{
+    int var;
+    int *ptr;
+    int val;
+
+    var  = 3000;
+
+    //获取var的地址
+    ptr = &var;
+
+    //获取ptr的值
+    val = *ptr;
+
+    cout << "the Value of var : " << var << "\n";
+    cout << "the Value of ptr : " << ptr << "\n";
+    cout << "the Value of val : " << val << "\n";
+
+    return 0;
+}
