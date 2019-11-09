@@ -1,0 +1,39 @@
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    // 局部变量声明
+    int a = 10, b = 10, c=10;
+
+    // break  跳出最内层循环
+    do{
+        cout << "a的值：" << a << endl;
+        a++;
+        if(a > 15){
+            break;
+        }
+    }while(a<20);
+
+    // continue 跳至判断条件
+    do{
+        if(b == 15){
+            b++;
+            continue;
+        }
+        cout << "b的值：" << b << endl;
+        b++;
+    }while(b < 20);
+
+    // goto 可以协助跳出深层循环，单break只跳出最内层循环。但尽量不要使用。
+    LOOP:do{
+        if(c==15){
+            c++;
+            goto LOOP;
+        }
+        cout << "c的值：" << c << endl;
+        c++;
+    }while(c<20);
+
+    return 0;
+}
