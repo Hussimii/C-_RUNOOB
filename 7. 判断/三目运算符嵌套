@@ -1,0 +1,20 @@
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    // 三目运算
+    int a,b;
+    cout << "请输入两个数字:";
+    cin >> a >> b;
+    a > b ? cout << a << ">" << b << endl : cout << a << "<" << b << endl;
+
+    //三目运算嵌套
+    int m,n,c,d,max;
+    cout << "请输入三个数字：";
+    cin >> m >> n >> c;
+    max = (d = m >= n ? m : n) >= c ? d : c;
+    cout << "max value: " << max << endl;
+
+    return 0;
+}
