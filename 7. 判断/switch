@@ -1,0 +1,42 @@
+#include<iostream>
+#include<string>
+
+using namespace std;
+
+// 函数定义
+void printcolor(string color, string str)
+{
+    int clr;
+    string head;
+    string tail;
+    string display;
+    if(color=="red") clr=1;   //传入参数递进给swtich语句
+    if(color=="green") clr=2;
+    // switch
+    switch(clr){
+        case 1:{
+            head = "\033[31m";
+            tail = "\033[0m";
+            display = head + str + tail;   //"\colorhead + str + \colortail"
+            break;
+        }
+        case 2:{
+            head = "\033[32m";
+            tail = "\033[0m";
+            display = head + str + tail;
+            break;
+        }
+        default:{
+            display = str;
+            break;
+        }
+    }
+    cout << display << endl;
+}
+
+int main()
+{
+    printcolor("red", "HelloWorld!");   // 函数调用
+    printcolor("green", "HelloWorld!");
+    return 0;
+}
