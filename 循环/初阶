@@ -1,0 +1,33 @@
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    // while
+    int a = 10; //局部变量声明
+
+    while (a < 20)
+    {
+        cout << "a的值：" << a << endl;
+        a++;
+    }
+
+    // for
+    int my_array[] {1,2,3,4,5};
+
+    for (auto &x: my_array)
+    {
+        x *= 2;
+        cout << "x的值：" <<  x << endl;
+    }
+
+    // do while 在尾部测试循环条件，因此能够保证至少执行一次循环
+    int b = 10;
+    do
+    {
+        cout << "b的值：" << b << endl;
+        b++;
+    }while (b<20);
+
+    return 0;
+}
