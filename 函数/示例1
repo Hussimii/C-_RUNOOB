@@ -1,0 +1,26 @@
+#include<iostream>
+using namespace std;
+
+/* 函数声明中，参数名称可不写，只有参数类型是必须的。
+ * e.g. int max(int, int); */
+int max(int num1, int num2);
+
+int main()
+{
+    int num1, num2;
+    cout << "plz input 2 nums:" << "\n";
+    cin >> num1 >> num2;
+
+    cout << "max value is: " <<  max(num1, num2) << endl;
+
+    return 0;
+}
+
+int max(int num1, int num2)
+{
+    int result;
+
+    result = num1 > num2 ? num1 : num2;
+
+    return result;
+}
