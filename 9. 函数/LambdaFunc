@@ -1,0 +1,69 @@
+#include<iostream>
+using namespace std;
+
+    /*
+     * Lambda definition: [capture](parameters) mutable -> return-types{statemen}
+     * [capture]: 捕捉列表，为lambda引出符。捕捉上下文中的变量供lambda函数使用
+     * (parameters)：参数列表。如果不需要参数传递，可连同括号()一起省略
+     * mutable：取消lambda默认的const函数常量型。使用时参数列表不可省略
+     * ->return-type：返回类型。不需要返回值，或返回类型明确时，可省略
+     *  {statement}：函数体。可使用所有捕获的变量。
+     *  最简单的lambda函数：[]{}
+     */
+
+    /*[capture] 示例：
+     *[] [=] [&]
+     *[x] [&x]
+     *[=, &x] [&, x]  符号在前，例外在后
+     *[this]: 以引用方式捕获当前对象（其实是复制指针）
+     *[*this]: 以传值捕获当前对象
+     */
+
+class test
+{
+    public:
+        void hello()
+        {
+            cout << "hello!\n";
+        };
+
+        void lambda()
+        {
+            auto func = [this]{   // 捕获this指针
+                this -> hello();  // this 调用 class test的对象
+            };
+        func();
+        };
+};
+
+int main()
+{
+    int i = 1024, j = 2048;
+
+    // 什么都不捕获
+    auto test1 = [](int x, int y) -> int{int z = x+y; cout << "test1: " << z << "\n";};
+
+    // 传值捕获
+    auto test2 = [=]{cout << "test2: " << i << "\n";};
+
+    // 引用捕获
+    auto test3 = [&]{cout << "test3: " << &i << " " << i << "\n";};
+
+    // 复制并引用捕获
+    auto test4 = [=, &i]{
+        cout << "test4: \n";
+        cout << "i: " <<  &i << " " << i << "\n";
+        cout << "j: " << j << "\n";
+    };
+
+    test1(1024,1024);
+    test2();
+    test3();
+    test4();
+
+    // 捕获this指针
+    test t;
+    t.lambda();
+
+    return 0;
+}
