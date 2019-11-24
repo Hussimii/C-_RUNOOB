@@ -1,0 +1,31 @@
+#include<iostream>
+#include<cmath>
+#include<time.h>
+using namespace std;
+
+#define MAX 10
+
+int main()
+{
+    // cos/sin/tan/log/pow(x,y)/sqrt/abs/floor/fabs
+    auto func = [](double arc){cout << cos(arc) << "\n";};
+    // func(3.14);
+
+    // rand + srand
+    int number[MAX] = {0};
+    int i;
+    // srand((unsigned) time(&t));
+    srand( (unsigned) time(NULL));  //传入空指针，不需要经过参数处理过的t数据
+    for(i=0; i<MAX; i++)
+    {
+        // number[i] = rand() % 100; // 产生100以内的随机整数
+
+        /* 模除法在[m, n]的范围内产生随机数
+         * int num = rand() % (n-m+1)+m  -> [区间内数的个数]+[区间的起始值]
+         */
+        number[i] = rand() % (10)+7;  // 2-11
+
+        cout << number[i] << "\n";
+    }
+    return 0;
+}
